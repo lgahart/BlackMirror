@@ -15,9 +15,11 @@ void setup() {
   // Start capturing the images from the camera
   video.start();  
   
-  videoSliceX = video.width / 2;
+  videoSliceX = video.height;
   drawPositionX = width - 1;
-  background(255, 255, 255);
+  background(250, 20, 135);
+  
+  tint(255,0,0,100);//change opacity
 }
 
 
@@ -41,5 +43,7 @@ void draw() {
     if (drawPositionX < 0) {
       drawPositionX = width - 1;
     }
+    
+    
   }
 }
