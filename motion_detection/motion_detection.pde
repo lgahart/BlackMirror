@@ -2,38 +2,41 @@ import processing.video.*;
 
 int numPixels;
 float []previousFrame;
-Capture cam;
+Capture video;
 float pixAverage;
+
+
 void setup()
 {
   size(800, 600);
-  cam = new Capture(this, width, height);
-  cam.start(); 
-  numPixels = cam.width * cam.height;
+  tint(255,30);
+  video = new Capture(this, width, height);
+  video.start(); 
+  numPixels = video.width * video.height;
   previousFrame = new float[numPixels];
   loadPixels();
-  stroke(250, 45, 232);
-  strokeWeight(4);
+  //stroke(250, 45, 232);
+  //strokeWeight(4);
   frameRate(10);
 }
 void draw()
 {
-  if (cam.available())
+  if (video.available())
   {
-    cam.read();
-    cam.loadPixels();
+    video.read();
+    video.loadPixels();
     int x = 0;
     int y = 0;
     int sum = 0;
     for (int i = 0; i < numPixels; i++)
     {
-      float currColor = red(cam.pixels[i]);
+      float currColor = red(video.pixels[i]);
       float prevColor = previousFrame[i];
       float d = abs(prevColor-currColor);
       if (d>50)
       {
-        int xt = i % cam.width;
-        int yt = i / cam.width;
+        int xt = i % video.width;
+        int yt = i / video.width;
         x += xt;
         y += yt;
         sum ++;

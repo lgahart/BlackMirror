@@ -5,21 +5,21 @@ Capture video;
 int videoSliceX;
 int drawPositionX;
 
+
 void setup() {
   size(800, 600);
   
   // This the default video input, see the GettingStartedCapture 
   // example if it creates an error
-  video = new Capture(this,800, 600);
+  video = new Capture(this,400, 600);
+
+  videoSliceX = video.width / 2;
+  drawPositionX = width - 1;
+  background(0);
   
   // Start capturing the images from the camera
   video.start();  
-  
-  videoSliceX = video.height;
-  drawPositionX = width - 1;
-  background(250, 20, 135);
-  
-  tint(255,0,0,100);//change opacity
+  tint(255,0,0, 30);
 }
 
 
@@ -43,7 +43,5 @@ void draw() {
     if (drawPositionX < 0) {
       drawPositionX = width - 1;
     }
-    
-    
   }
 }
