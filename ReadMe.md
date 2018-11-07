@@ -1,8 +1,10 @@
-# Bofore modify the codeS...... 
+# Use GitKraken to manage the git! 
 1. Follow [Our google doc](https://docs.google.com/document/d/1YYoNNZ5IKo7X4feyUCKZg0DJ4kpR3mmDJ4-gTnyjmqk/edit?usp=sharing)
 2. Clone this repo to your local folder than modify it!
 3. Commit all your changes with commit message
 4. PUSH!!!!!
+
+**Everytime before you change codes, please pull form remote, make sure you are editting the latest version.
 
 # About This Project
 1. Title:
@@ -10,12 +12,12 @@
 3. Media: Raspberry Pi, Screen, Frame, webcam
 4. Dimension: Screensize ?px *?px
 
-## Best Ideas
+## Best ideas
 1. Stilscan + audio
 2. Video echo
 3. Motion detection + audio
 
-## Concept
+## Concepts 
 1. Personality layers
 2. Masking our real self
 3. Use neon colors to enhance personality / create a fantasy world
