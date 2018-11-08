@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing on the Web</title>
+    <script type="text/javascript" src="js/processing.js"></script>
+    <script type="text/javascript" src="js/p5.js"></script>
+    <script type="text/javascript" src="js/p5.min.js"></script>
+    <script type="text/javascript" src="js/p5.dom.min.js"></script>
+</head>
+
+<body>
+ <canvas>
+     <script>
+        var capture;
+
+        function setup() {
+           createCanvas(1024, 600);
+           capture = createCapture(VIDEO);
+           capture.size(1024, 600);
+            tint(255, 30); 
+//           capture.hide();
+        }
+
+        function draw() {
+            background(255);
+            image(capture, 0, 0, 1024, 600);
+            
+        }
+     
+     </script>
+ </canvas>
+
+</body>
+</html>

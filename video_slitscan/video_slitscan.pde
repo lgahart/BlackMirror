@@ -1,56 +1,47 @@
 import processing.video.*;
-import processing.sound.*;
 
 Capture video;
-SoundFile file;
+int y = 0;
+int x = 0;
+//PImage img;                                       
 
-int videoSliceX;
-int drawPositionX;
-PImage imgMask;
 
 
 void setup() {
-  size(800, 600);
-  
-  // This the default video input, see the GettingStartedCapture 
-  // example if it creates an error
-  video = new Capture(this,400, 600);
-  file = new SoundFile(this, "space.wav");
-  file.play();
-
-  videoSliceX = video.width / 2;
-  drawPositionX = width - 1;
-  background(0);
-  tint(252,176,214, 30);
-  video.start();  
-
-  //imgMask = loadImage("neonbg.jpg");
-  //video.mask(imgMask);
-  
-  
+    //open file in fullscreen
+    fullScreen();
+    background(255,255,255);
+    //img = loadImage("neon.png");
+    video = new Capture(this, width, height);
+    tint(255,0,0,30);
+    video.start();
 }
-
-
+void captureEvent(Capture video){
+  video.read();
+  tint(0, 153, 204);
+}
 
 
 void draw() {
-  if (video.available()) {
-    video.read();
-    video.loadPixels();
-    // Copy a column of pixels from the middle of the video 
-    // To a location moving slowly across the canvas.
-    loadPixels();
-    for (int y = 0; y < video.height; y++){
-      int setPixelIndex = y*width + drawPositionX;
-      int getPixelIndex = y*video.width  + videoSliceX;
-      pixels[setPixelIndex] = video.pixels[getPixelIndex ];
+   loadPixels(); 
+   
+   video.loadPixels();
+   //img.loadPixels();
+   
+   int w = video.width;
+   int h = video.height;
+
+   copy(video, 0, h/2, w, 2, 0, y, w, 2);
+   copy(video, w/2, 0, 2, h, x, 0, 2, h);
+
+   y = y + 1;
+   x = x + 1;
+  
+    if (y > height) {
+    y = 0;
     }
-    updatePixels();
     
-    drawPositionX--;
-    // Wrap the position back to the beginning if necessary.
-    if (drawPositionX < 0) {
-      drawPositionX = width - 1;
+    if (x > width) {
+    x = 0;
     }
   }
-}

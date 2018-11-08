@@ -1,25 +1,16 @@
 import processing.video.*;
-
-//Step 2. Declare a capture object.
 Capture video;
+void setup() {  
+  fullScreen();
+  tint(255, 255, 255, 30);
+  video = new Capture(this, width, height);
+  video.start();
+}
 
-// Step 5. Read from the camera when a new image is available!
 void captureEvent(Capture video) {
   video.read();
 }
 
-void setup() {  
-  size(800, 600);
-  tint(255, 30);
- 
-  // Step 3. Initialize Capture object.
-  video = new Capture(this, 800, 600);
-  
-  // Step 4. Start the capturing process.
-  video.start();
-}
-
-// Step 6. Display the image.
 void draw() {  
-image(video, 0, 0);
+  image(video, 0 ,0);
 }

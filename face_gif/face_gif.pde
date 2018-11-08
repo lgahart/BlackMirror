@@ -15,10 +15,11 @@ PImage[] images = new PImage[numFrames];
 
 
 void setup() {
-  size(800, 600);
+  //open file in fullscreen
+  fullScreen();
   
-  video = new Capture(this, 800/2, 600/2);
-  opencv = new OpenCV(this, 800/2, 600/2);
+  video = new Capture(this, width/2, height/2);
+  opencv = new OpenCV(this, width/2, height/2);
   opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE);  
   
   //load gif frames
