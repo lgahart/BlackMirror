@@ -4,33 +4,44 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Processing on the Web</title>
-    <script type="text/javascript" src="js/processing.js"></script>
     <script type="text/javascript" src="js/p5.js"></script>
     <script type="text/javascript" src="js/p5.min.js"></script>
     <script type="text/javascript" src="js/p5.dom.min.js"></script>
 </head>
 
 <body>
- <canvas>
+    <div>
      <script>
-        var capture;
+        var video;
+        var y = 0; //start from the top
+        var x = 0; //start from the left
 
         function setup() {
-           createCanvas(1024, 600);
-           capture = createCapture(VIDEO);
-           capture.size(1024, 600);
-            tint(255, 30); 
-//           capture.hide();
+            createCanvas(windowWidth, windowHeight);
+            pixelDensity(1);
+            video = createCapture(VIDEO);
+            video.size(windowWidth, windowHeight);
+            video.hide();
         }
 
         function draw() {
-            background(255);
-            image(capture, 0, 0, 1024, 600);
-            
-        }
-     
+            video.loadPixels();
+            var w = video.width;
+            var h = video.height;
+
+            copy(video, 0, h/2, w, 20, 0, y, w, 20);//load y pixels
+            copy(video, w/2, 0, 2, h, x, 0, 2, h );//load x pixels
+
+            y = y + 1;
+            x = x + 1;
+
+            if (y > height, x > width) {
+            y = 0; //start from the top
+            x = 0; //start from the left
+            }
+            }
      </script>
- </canvas>
+     </div>
 
 </body>
 </html>

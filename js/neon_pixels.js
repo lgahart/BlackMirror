@@ -13,11 +13,9 @@ function setup() {
 
 }
 
-
 function draw() { 
-	background(51);
 	video.loadPixels();
-  loadPixels();
+    loadPixels();
 	for (var y = 0; y < video.height; y++){
 		for (var x = 0; x < video.width; x++){
 			var index = (video.width - x + 1 + (y * video.height) )*4;
@@ -35,7 +33,8 @@ function draw() {
     // fill the columns with color array
     fill(randomColor[picker]);
     noStroke();
-    if (mousePressed){
-      picker = round(random (0,4));
-    }
+//    
+//    if (mousePressed){
+//      picker = round(random (0,4));
+//    }
 }
