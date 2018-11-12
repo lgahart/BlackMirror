@@ -1,16 +1,26 @@
-var video;
-        var vScale = 16;
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing on the Web</title>
+    <script type="text/javascript" src="js/p5.js"></script>
+    <script type="text/javascript" src="js/p5.min.js"></script>
+    <script type="text/javascript" src="js/p5.dom.js"></script>
+</head>
 
+<body style="margin:0px">
+    <div style="position:relative; display:block; margin-top:-670px;">
+        <script>
+        var video;
+        var vScale = 10;
         function setup() { 
-            createCanvas(640,480);
+            createCanvas(windowWidth, windowHeight);
             pixelDensity(1);
             video = createCapture(VIDEO);
             video.size = (width/vScale, height/vScale);
             video.hide();
-
         }
-            
-            
         function draw() { 
             background(51);
             video.loadPixels();
@@ -23,13 +33,17 @@ var video;
                     var b = video.pixels[index+2];
                     
                     var bright = (r+g+b)/3;
-                    
                     var w = map(bright, 0, 255, 0, vScale);
-                    
                     noStroke;
-                    fill(255);
+                    fill(random(255), random(255), random(255));
                     rectMode(CENTER);
                     rect(x*vScale, y*vScale, w, w);
                 }
             }
         }
+        </script>
+    </div>
+    
+
+</body>
+</html>

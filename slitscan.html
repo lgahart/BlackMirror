@@ -6,12 +6,12 @@
     <title>Processing on the Web</title>
     <script type="text/javascript" src="js/p5.js"></script>
     <script type="text/javascript" src="js/p5.min.js"></script>
-    <script type="text/javascript" src="js/p5.dom.min.js"></script>
+    <script type="text/javascript" src="js/p5.dom.js"></script>
 </head>
 
-<body>
-    <div>
-     <script>
+<body style="margin:0px;">
+    <div style="position:relative; display:block; margin-top:-670px;">
+        <script>
         var video;
         var y = 0; //start from the top
         var x = 0; //start from the left
@@ -36,12 +36,12 @@
             x = x + 1;
 
             if (y > height, x > width) {
-            y = 0; //start from the top
-            x = 0; //start from the left
+                y = 0; //start from the top
+                x = 0; //start from the left
             }
-            }
-     </script>
-     </div>
+        }
+        </script>
+    </div>
 
 </body>
 </html>
