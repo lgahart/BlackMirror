@@ -23,5 +23,15 @@
 3. Use neon colors to enhance personality / create a fantasy world
 4. Fluid identity
 
+Keywords: Personality layers, Masking our real self, use neon colors to enhance personality / create a fantasy world, fluid identity
+The camera represents how others look at you, the sketches are like filters. When people look at someone they see only what they want to see and not who you truly are. 
+
+
+Shifting identities to better adapt to a new environment - Trying to be everywhere to better fit, living in virtual and physical environments.
+
+ Inspired by  Avant Garde (pixel changes)
+Faking identity to access social environments - creating multiple layers 
+
+
 
 
