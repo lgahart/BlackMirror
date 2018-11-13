@@ -4,56 +4,59 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <style>
-  /* Make the image fully responsive */
-  .carousel-inner img {
-      width: 100%;
-      height: 100%;
-  }
-  </style>
+  <link rel="stylesheet" href="css/bootstrap.css">
+<!--
+  <script src="js/bootstrap.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <script type="text/javascript" src="js/p5.js"></script>
+    <script type="text/javascript" src="js/p5.min.js"></script>
+    <script type="text/javascript" src="js/p5.dom.js"></script>
 </head>
 <body>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+        <div style="position:relative;margin-top:-670px">
+        <script>
+            var video;
+            var y = 0; //start from the top
+            var x = 0; //start from the left
 
-<div id="demo" class="carousel slide" data-ride="carousel">
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="la.jpg" alt="Los Angeles" width="1100" height="500">
-      <div class="carousel-caption">
-        <h3>Los Angeles</h3>
-        <p>We had such a great time in LA!</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="chicago.jpg" alt="Chicago" width="1100" height="500">
-      <div class="carousel-caption">
-        <h3>Chicago</h3>
-        <p>Thank you, Chicago!</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="ny.jpg" alt="New York" width="1100" height="500">
-      <div class="carousel-caption">
-        <h3>New York</h3>
-        <p>We love the Big Apple!</p>
-      </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-</div>
+            function setup() {
+                createCanvas(windowWidth, windowHeight);
+                pixelDensity(1);
+                video = createCapture(VIDEO);
+                video.size(windowWidth, windowHeight);
+                video.hide();
+            }
+
+            function draw() {
+                video.loadPixels();
+                var w = video.width;
+                var h = video.height;
+
+                copy(video, 0, h/2, w, 20, 0, y, w, 20);//load y pixels
+                copy(video, w/2, 0, 2, h, x, 0, 2, h );//load x pixels
+
+                y = y + 1;
+                x = x + 1;
+
+                if (y > height, x > width) {
+                    y = 0; //start from the top
+                    x = 0; //start from the left
+                }
+            }
+        </script>
+        </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="face_gif/party.png" alt="Third slide">
+    </div>
+  </div>
+
 
 </body>
 </html>

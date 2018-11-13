@@ -1,20 +1,31 @@
-<!DOCTYPE html>
 <html lang="eng">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Processing on the Web</title>
+    <title>Black Mirror</title>
     <script type="text/javascript" src="js/p5.js"></script>
     <script type="text/javascript" src="js/p5.min.js"></script>
     <script type="text/javascript" src="js/p5.dom.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil|Source+Sans+Pro" rel="stylesheet">
 </head>
 
-<body style="margin:0px;">
-    <div style="position:relative; display:block; margin-top:-670px;">
+<body style="margin:0px; font-family: sans-serif">
+    <div class="title p0">Chapter 1</div> 
+    <div class="title p1">You know the slices of me</div> 
+    <div class="title p2">Every movement, gesture, behaviour  </div>
+    <div class="title p3">Might change the results of how you perceive me</div>
+    <div class="title p4">It's so reall, but not the entire story.</div> 
+    <div class="btn-group">
+    <a class="btn lock">Chapter 1</a>
+    <a class="btn unlock" href="neon.html">Chapter 2</a>
+    </div>
+
+    <div class="sketch">
         <script>
         var video;
-        var y = 0; //start from the top
-        var x = 0; //start from the left
+        var y = -60; //start from the top
+        var x = -60; //start from the left
 
         function setup() {
             createCanvas(windowWidth, windowHeight);
@@ -29,19 +40,22 @@
             var w = video.width;
             var h = video.height;
 
-            copy(video, 0, h/2, w, 20, 0, y, w, 20);//load y pixels
+            copy(video, 0, h/2, w, 2, 0, y, w, 2);//load y pixels
             copy(video, w/2, 0, 2, h, x, 0, 2, h );//load x pixels
 
             y = y + 1;
             x = x + 1;
 
-            if (y > height, x > width) {
+            if (y > windowHeight) {
                 y = 0; //start from the top
-                x = 0; //start from the left
+                //start from the left
+            }
+            
+            if(x > windowWidth){
+                x = 0; 
             }
         }
         </script>
     </div>
-
 </body>
 </html>
